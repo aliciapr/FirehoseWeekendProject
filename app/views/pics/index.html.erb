@@ -1,5 +1,4 @@
 
-
 <h2 class="custom-pic-header">Here are all the pics!</h2>
 
 	<% @pics.each do |pic| %>
@@ -12,6 +11,8 @@
 				<p />
 				<%= pic.emotion %>
 			</h4>
+			<p />
+				<%= image_tag pic.image %>
 			<br />
 			<h4>What I learned: <p /></h4>
 				<%= pic.learned %>
