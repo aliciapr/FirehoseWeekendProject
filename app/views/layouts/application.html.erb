@@ -30,7 +30,17 @@
 	 			<li>
 				<%= link_to('My app', pics_path, :class => 'brand')%>
 				</li>
-				<%= link_to 'New Pic', new_pic_path, :class => 'btn btn-warning'%>
+				<% if current_user.blank? %>
+
+		            <li><%= link_to('Sigh in', new_user_session_path) %></li>
+		            <li><%= link_to('Sign up', new_user_registration_path) %></li>
+		        <% else %>
+		            <li>
+		            <%= link_to('Sign out', destroy_user_session_path, :method => :delete) %>
+		        	</li>
+
+		        <% end %>
+		        <%= link_to 'New Pic', new_pic_path, :class => 'btn btn-warning'%>
 			</ul>
 	      </div>
 	 
@@ -45,8 +55,6 @@
 <% if alert.present? %>
 	<p class="alert"><%= alert %></p>
 <% end %>
-
-
 
 
 
